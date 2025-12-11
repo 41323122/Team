@@ -161,8 +161,116 @@
 </tr>
 </tbody>
 </table>
-<p></p>
-<h1>Plotter</h1>
+<h2>W7</h2>
+<h2>W10</h2>
+<h2>W14</h2>
+<p><span>w14: </span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的模型有沒有辦法用程式方法建立? 有沒有辦法直接從 CAD 套件中轉出<span> </span></span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的場景模型？</span></p>
+<h2 data-end="74" data-start="51"><strong data-end="74" data-start="54">1️⃣ 建立檔案階段（程式生成）</strong></h2>
+<ul data-end="251" data-start="75">
+<li data-end="212" data-start="75">
+<p data-end="131" data-start="77">使用程式（Python、C++ 或腳本）生成 <strong data-end="112" data-start="100"><code data-end="110" data-start="102">.proto</code></strong> 或 <strong data-end="125" data-start="115"><code data-end="123" data-start="117">.wbt</code></strong> 檔案。</p>
+<ul data-end="212" data-start="134">
+<li data-end="168" data-start="134">
+<p data-end="168" data-start="136"><strong data-end="148" data-start="136"><code data-end="146" data-start="138">.proto</code></strong>：定義可重複使用的物件或機器人模型。</p>
+</li>
+<li data-end="212" data-start="171">
+<p data-end="212" data-start="173"><strong data-end="183" data-start="173"><code data-end="181" data-start="175">.wbt</code></strong>：定義整個世界（場景），可包含多個物件、光源、相機等。</p>
+</li>
+</ul>
+</li>
+<li data-end="251" data-start="213">
+<p data-end="251" data-start="215">本質上都是 <strong data-end="228" data-start="221">文字檔</strong>，語法類似 <strong data-end="248" data-start="234">VRML / X3D</strong>。</p>
+</li>
+</ul>
+<hr data-end="256" data-start="253"/>
+<h2 data-end="285" data-start="258"><strong data-end="285" data-start="261">2️⃣ Webots 啟動 &amp; 解析階段</strong></h2>
+<ol data-end="691" data-start="286">
+<li data-end="328" data-start="286">
+<p data-end="328" data-start="289"><strong data-end="297" data-start="289">讀取檔案</strong>：Webots 將 <code data-end="313" data-start="307">.wbt</code> 檔案文字內容讀入記憶體。</p>
+</li>
+<li data-end="497" data-start="329">
+<p data-end="351" data-start="332"><strong data-end="348" data-start="332">語法解析（Parser）</strong>：</p>
+<ul data-end="497" data-start="355">
+<li data-end="416" data-start="355">
+<p data-end="416" data-start="357">Webots 內建 <strong data-end="383" data-start="367">VRML/X3D 解析器</strong>，將文字描述轉換成 <strong data-end="408" data-start="393">Scene Graph</strong>（場景圖）。</p>
+</li>
+<li data-end="468" data-start="420">
+<p data-end="468" data-start="422">每個節點（Solid、Shape、Light、Camera…）會生成 <strong data-end="465" data-start="457">內部物件</strong>。</p>
+</li>
+<li data-end="497" data-start="472">
+<p data-end="497" data-start="474"><code data-end="482" data-start="474">.proto</code> 檔案會被展開成對應節點。</p>
+</li>
+</ul>
+</li>
+<li data-end="595" data-start="498">
+<p data-end="514" data-start="501"><strong data-end="511" data-start="501">生成物理世界</strong>：</p>
+<ul data-end="595" data-start="518">
+<li data-end="549" data-start="518">
+<p data-end="549" data-start="520">使用 <strong data-end="535" data-start="523">ODE 物理引擎</strong>計算剛體、摩擦、碰撞等。</p>
+</li>
+<li data-end="595" data-start="553">
+<p data-end="595" data-start="555">每個 Solid/物件生成物理剛體，套用質量、慣性、摩擦等屬性（如有設定）。</p>
+</li>
+</ul>
+</li>
+<li data-end="691" data-start="596">
+<p data-end="615" data-start="599"><strong data-end="612" data-start="599">渲染與控制器初始化</strong>：</p>
+<ul data-end="691" data-start="619">
+<li data-end="644" data-start="619">
+<p data-end="644" data-start="621">場景進入 <strong data-end="641" data-start="626">OpenGL 渲染引擎</strong>。</p>
+</li>
+<li data-end="691" data-start="648">
+<p data-end="691" data-start="650">Controller（Python、C++ 等）初始化，開始控制機器人或物件。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr data-end="696" data-start="693"/>
+<h2 data-end="719" data-start="698"><strong data-end="719" data-start="701">    從 CAD 匯入模型</strong></h2>
+<ul data-end="1210" data-start="720">
+<li data-end="770" data-start="720">
+<p data-end="770" data-start="722"><strong data-end="730" data-start="722">支援格式</strong>：<code data-end="737" data-start="731">.x3d</code>、<code data-end="744" data-start="738">.dae</code>（COLLADA）、<code data-end="760" data-start="754">.stl</code>、<code data-end="767" data-start="761">.obj</code>。</p>
+</li>
+<li data-end="904" data-start="771">
+<p data-end="788" data-start="773"><strong data-end="785" data-start="773">CAD 匯出流程</strong>：</p>
+<ol data-end="904" data-start="791">
+<li data-end="839" data-start="791">
+<p data-end="839" data-start="794">在 CAD 軟體完成模型（SolidWorks、Fusion360、Onshape）。</p>
+</li>
+<li data-end="862" data-start="842">
+<p data-end="862" data-start="845">匯出 STL/OBJ/DAE。</p>
+</li>
+<li data-end="904" data-start="865">
+<p data-end="904" data-start="868">放入 Webots 世界作為 <strong data-end="901" data-start="883">Shape/Geometry</strong>。</p>
+</li>
+</ol>
+</li>
+<li data-end="1026" data-start="905">
+<p data-end="918" data-start="907"><strong data-end="915" data-start="907">注意事項</strong>：</p>
+<ul data-end="1026" data-start="921">
+<li data-end="955" data-start="921">
+<p data-end="955" data-start="923">Webots 單位為 <strong data-end="939" data-start="934">米</strong>，需確認 CAD 匯出單位。</p>
+</li>
+<li data-end="999" data-start="958">
+<p data-end="999" data-start="960">STL/OBJ/DAE 主要是幾何形狀，物理屬性需在 Webots 設定。</p>
+</li>
+<li data-end="1026" data-start="1002">
+<p data-end="1026" data-start="1004">模型太複雜會影響運算效能，建議簡化網格。</p>
+</li>
+</ul>
+</li>
+<li data-end="1210" data-start="1027">
+<p data-end="1040" data-start="1029"><strong data-end="1037" data-start="1029">工具支援</strong>：</p>
+<ul data-end="1210" data-start="1043">
+<li data-end="1069" data-start="1043">
+<p data-end="1069" data-start="1045">Onshape：可匯出 STL 或 OBJ。</p>
+</li>
+<li data-end="1115" data-start="1072">
+<p data-end="1115" data-start="1074">Fusion360、SolidWorks：可匯出 COLLADA 或 STL。</p>
+</li>
+</ul>
+</li>
+</ul><h1>Plotter</h1>
 <p>design</p>
 <p>Math</p>
 <p>利用基因演算法解決機械設計問題:</p>
@@ -171,5 +279,6 @@
 <p>最小尺寸設計如下:</p>
 <p>【基因演算法最終最小化尺寸設計結果】<br/>找到**滿足約束且最小化尺寸**的設計（總尺寸 J ≈ 53.5 cm）:<br/>L1 (Link 1 &amp; 4) = 19.00 cm<br/>L2 (Link 2 &amp; 3) = 26.00 cm<br/>Distance (Y-bottom) =17.00 cm<br/><br/>--- 最終設計驗證 ---<br/>1. 最遠點奇異點約束 (L1+L2 &gt; D_max): 44.00 &gt; 42.06(滿足)<br/>2. 繪圖區域穩定性 (2*L2 &gt; Max(D_BD) + 1.0cm):<br/>   2*L2 = 52.00 cm<br/>   Max(D_BD) + 1.0 cm =42.06  + 1.00 =43.06 cm<br/>   **裕度滿足 (2*L2 僅略大於所需值，實現最小化)**<br/>3. Y 座標約束 (Y_B, Y_D &gt;= 0): 在逆運動學中已確保 (滿足)</p>
 <p><img alt="" height="449" src="/images/S__93782027.jpg" width="800"/></p>
-<p></p>
+<p>webots分屍ver.</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="479" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lRmH5qwbrvc" title="分屍版Plotter" width="902"></iframe></p>
 <h1>Openduck</h1>
