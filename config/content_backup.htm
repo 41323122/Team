@@ -244,7 +244,7 @@
 <p data-end="761" data-start="747">你可使用以下語言撰寫控制器：</p>
 <ul data-end="836" data-start="762">
 <li data-end="779" data-start="762">
-<p data-end="779" data-start="764"><strong data-end="779" data-start="764">Python（最常用）</strong></p>
+<p data-end="779" data-start="764"><em>Python（最常用）</em></p>
 </li>
 <li data-end="789" data-start="780">
 <p data-end="789" data-start="782">C / C++</p>
@@ -272,7 +272,121 @@
 <li data-end="933" data-start="907">
 <p data-end="933" data-start="909">RViz<br data-end="916" data-start="913"/> 讓研究者能使用真實機器人軟體套件。</p>
 </li>
-</ul><h2>W14</h2>
+</ul>
+<p data-end="884" data-start="867"><em><strong></strong></em></p>
+<p data-end="884" data-start="867"><em><strong>如何進行場景模擬？</strong></em></p>
+<p data-end="884" data-start="867"><em>Step1 - 建立或開啟一個世界(*.wbt)</em></p>
+<ul data-end="1102" data-start="997">
+<li data-end="1031" data-start="997">
+<p data-end="1031" data-start="999">打開 Webots <em>→ <code data-end="1017" data-start="1011">File</code> → <code data-end="1031" data-start="1020">New World</code></em></p>
+</li>
+<li data-end="1102" data-start="1032">
+<p data-end="1043" data-start="1034">或開現有範例，如：</p>
+<ul data-end="1102" data-start="1046">
+<li data-end="1072" data-start="1046">
+<p data-end="1072" data-start="1048"><em>robotics → mobile robots</em></p>
+</li>
+<li data-end="1102" data-start="1075">
+<p data-end="1102" data-start="1077"><em>manipulation → robot arms</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr data-end="1107" data-start="1104"/>
+<p data-end="1180" data-start="1133"><em>Step2 - 在場景中加入物件</em></p>
+<p data-end="1180" data-start="1133">按右側 <em data-end="1173" data-start="1137">Add → Bot → Obstacle → Environment</em><br data-end="1176" data-start="1173"/> 可加入：</p>
+<ul data-end="1250" data-start="1181">
+<li data-end="1202" data-start="1181">
+<p data-end="1202" data-start="1183">地面（Floor / Terrain）</p>
+</li>
+<li data-end="1214" data-start="1203">
+<p data-end="1214" data-start="1205">桌子、箱子等障礙物</p>
+</li>
+<li data-end="1222" data-start="1215">
+<p data-end="1222" data-start="1217">機器人模型</p>
+</li>
+<li data-end="1242" data-start="1223">
+<p data-end="1242" data-start="1225">感測器（Lidar、Camera）</p>
+</li>
+<li data-end="1250" data-start="1243">
+<p data-end="1250" data-start="1245">光源、天空</p>
+</li>
+</ul>
+<p data-end="1180" data-start="1133"><strong></strong></p>
+<hr data-end="1255" data-start="1252"/>
+<p data-end="1317" data-start="1290"><em>Step3 - 加入控制器(controller)</em></p>
+<p data-end="1317" data-start="1290">每個機器人都必須綁定一個 controller 程式：</p>
+<ol data-end="1407" data-start="1318">
+<li data-end="1350" data-start="1318">
+<p data-end="1350" data-start="1321">在 Robot 節點中找到<em> <code data-end="1347" data-start="1335">controller</code> </em>欄位</p>
+</li>
+<li data-end="1376" data-start="1351">
+<p data-end="1376" data-start="1354">選擇<em> <code data-end="1362" data-start="1357">new</code> </em>建立<em> Python</em> 控制器</p>
+</li>
+<li data-end="1407" data-start="1377">
+<p data-end="1407" data-start="1380">Webots 會建立 <em><code data-end="1396" data-start="1391">.py</code></em> 檔並自動與機器人連結</p>
+</li>
+</ol>
+<p data-end="1317" data-start="1290"></p>
+<hr data-end="1412" data-start="1409"/>
+<p><em>Step4 - 執行模擬</em></p>
+<ul data-end="1491" data-start="1434">
+<li data-end="1447" data-start="1434">
+<p data-end="1447" data-start="1436">按 播放鍵<strong data-end="1447" data-start="1438"> ▶</strong></p>
+</li>
+<li data-end="1469" data-start="1448">
+<p data-end="1469" data-start="1450">控制器開始執行，機器人會依你的程式運作</p>
+</li>
+<li data-end="1491" data-start="1470">
+<p data-end="1491" data-start="1472">可隨時修改場景、調整物理參數、紀錄影片</p>
+</li>
+</ul>
+<p data-end="884" data-start="867"></p>
+<p><strong></strong></p>
+<p data-end="884" data-start="867"><em><strong>如何用 Python 進行控制系統設計？</strong></em></p>
+<p data-end="1554" data-start="1524">Webots 提供 Python API，以下示範基本流程：</p>
+<p data-end="884" data-start="867"><em>Step1 - 匯入webots API</em></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot
+</pre>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em>Step2 - 初始化機器人</em></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">robot = Robot()
+timestep = int(robot.getBasicTimeStep())
+</pre>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em>Step3 - 取得馬達與感測器</em></p>
+<p data-end="884" data-start="867">例如控制輪式機器人:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">left_motor = robot.getDevice('left wheel motor')
+right_motor = robot.getDevice('right wheel motor')
+
+left_motor.setPosition(float('inf'))  # velocity mode
+right_motor.setPosition(float('inf'))
+</pre>
+<p data-end="884" data-start="867"><em>開啟距離感測器：</em></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">ds = robot.getDevice('ds0')
+ds.enable(timestep)
+</pre>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em>Step4 - 主控制迴圈(控制系統核心)</em></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">while robot.step(timestep) != -1:
+    distance = ds.getValue()
+
+    # 簡單避障邏輯
+    if distance &lt; 800:
+        left_motor.setVelocity(-2.0)
+        right_motor.setVelocity(2.0)
+    else:
+        left_motor.setVelocity(4.0)
+        right_motor.setVelocity(4.0)
+</pre>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"><em></em></p>
+<p data-end="884" data-start="867"></p><h2>W14</h2>
 <p><span>w14: </span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的模型有沒有辦法用程式方法建立? 有沒有辦法直接從 CAD 套件中轉出<span> </span></span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的場景模型？</span></p>
 <h4 data-end="74" data-start="51"><strong data-end="74" data-start="54">1️⃣ 建立檔案階段（程式生成）</strong></h4>
 <ul data-end="251" data-start="75">
