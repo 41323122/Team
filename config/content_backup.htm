@@ -23,7 +23,6 @@
 <p>成員4 41323137 陳晉崎</p>
 <p>成員5 41323139 黃柏浩</p>
 <p>成員6 41323143 葉鈞皓</p>
-<h2>小組分工</h2>
 <h1>CAD2025進度</h1>
 <h3>W3</h3>
 <p><span> 用什麼套件完成 </span><a href="https://youtu.be/iOLFP90DneY">5-bar Linkage Plotter</a><span><span> </span>與<span> </span></span><a href="https://mde.tw/cad2025/content/OpenDuck.html">Openduck mini</a><span><span> </span>零組件設計繪圖？<span> </span></span><a href="https://solvespace.com/">Solvespace</a><span>,<span> </span></span><a href="https://plm.sw.siemens.com/en-US/nx/cad-online/">Siemens NX</a><span>,<span> </span></span><a href="https://www.onshape.com/en/">Onshape</a><span><span> </span>或其他？各有什麼優缺點？ (</span><a href="https://mde.tw/cad2025/downloads/plotter.7z">plotter.7z</a><span>,<span> </span></span><a href="https://41323122.github.io/Team/downloads/open_duck_mini.7z">open_duck_mini.7z</a><span>)</span></p>
@@ -304,7 +303,8 @@ def main():
 
 if __name__ == "__main__":
     main()</pre>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="535" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/CvOFtyKqs40" title="five bar apple" width="1009"></iframe></p><h2>W10</h2>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="535" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/CvOFtyKqs40" title="five bar apple" width="1009"></iframe></p>
+<h2>W10</h2>
 <p><span>w10: </span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>是什麼？有什麼特點？ 如何進行場景模擬？ 如何用 Python 進行控制系統設計？ (</span><a href="https://cyberbotics.com/doc/guide/tutorials">Tutorial</a><span>)</span></p>
 <p><em><strong>webots是什麼?</strong></em></p>
 <p data-end="176" data-start="86">webots是一款由 Cyberbotics 開發、跨平台且專業的開源 3D 機器人模擬軟體。<br data-end="145" data-start="142"/> 它可用於研究、教育、快速原型製作，以及工業級機器人演算法開發。</p>
@@ -528,7 +528,8 @@ ds.enable(timestep)
 <p data-end="884" data-start="867"><em></em></p>
 <p data-end="884" data-start="867"><em></em></p>
 <p data-end="884" data-start="867"><em></em></p>
-<p data-end="884" data-start="867"></p><h2>W14</h2>
+<p data-end="884" data-start="867"></p>
+<h2>W14</h2>
 <p><span>w14: </span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的模型有沒有辦法用程式方法建立? 有沒有辦法直接從 CAD 套件中轉出<span> </span></span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的場景模型？</span></p>
 <h4 data-end="74" data-start="51"><strong data-end="74" data-start="54">1️⃣ 建立檔案階段（程式生成）</strong></h4>
 <ul data-end="251" data-start="75">
@@ -631,12 +632,16 @@ ds.enable(timestep)
 <h4 data-end="1069" data-start="1045">Onshape：可匯出 STL 或 OBJ。</h4>
 </li>
 <li data-end="1115" data-start="1072">
-<h4 data-end="1115" data-start="1074">Fusion360、SolidWorks：可匯出 COLLADA 或 STL。</h4>
+<h4 data-end="1115" data-start="1074">Fusion360、SolidWorks：可匯出 COLLADA 或 STL</h4>
 </li>
 </ul>
 </li>
 </ul>
-<h1>Plotter</h1>
+<h2>W17</h2>
+<p><span>w17: 如何實作一套 </span><a href="https://youtu.be/iOLFP90DneY">5-bar Linkage Plotter</a><span><span> </span>與<span> </span></span><a href="https://mde.tw/cad2025/content/OpenDuck.html">Openduck mini</a><span>？(</span><a href="https://la.disneyresearch.com/publication/design-and-control-of-a-bipedal-robotic-character/">Disney Bipedal Robot</a><span>)</span></p>
+<p>本實作流程整合了 <b data-index-in-node="9" data-path-to-node="0">SolveSpace</b> 的機構驗證與 <b data-index-in-node="27" data-path-to-node="0">Onshape</b> 的參數化建模，將 CAD 模型導出至 <b data-index-in-node="54" data-path-to-node="0">Webots</b> 環境重建 <b data-index-in-node="66" data-path-to-node="0">Solid</b> 與 <b data-index-in-node="74" data-path-to-node="0">HingeJoint</b> 物理特性，進而透過運動學解算與步態規劃，完成 <b data-index-in-node="108" data-path-to-node="0">5-bar Plotter</b> 的精準繪圖與 <b data-index-in-node="129" data-path-to-node="0">OpenDuck Mini</b> 的雙足平衡行走模擬。</p><h2>W18</h2>
+<p><span>w18: 課程總結</span></p>
+<p>本實作透過 <b data-index-in-node="6" data-path-to-node="0">SolveSpace</b> 與 <b data-index-in-node="19" data-path-to-node="0">Onshape</b> 構築精確的參數化模型，並在 <b data-index-in-node="41" data-path-to-node="0">Webots</b> 物理環境中重建剛體與關節架構，完美銜接了從幾何機構設計、動態物理模擬到運動學控制演算法的開發全流程，體現了數位孿生技術在機器人開發上的核心價值。</p><h1>Plotter</h1>
 <p>繪製網址: <a href="https://shorturl.at/Tv2TY">Onshape</a></p>
 <p>design</p>
 <p>Math</p>
@@ -650,5 +655,8 @@ ds.enable(timestep)
 <p><img alt="" height="449" src="/images/S__93970438.jpg" width="800"/></p>
 <p>webots分屍ver.</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="479" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lRmH5qwbrvc" title="分屍版Plotter" width="902"></iframe>完整版(含組裝過程)</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="535" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/if7YCh8OaIE" title='國立虎尾科技大學機械設計工程系 - 計算機程式 41323135-plotter組裝過程     "分組作業組裝代表"' width="1007"></iframe>畫蘋果</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="535" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/CvOFtyKqs40" title="five bar apple" width="1009"></iframe><a href="https://gist.githubusercontent.com/41323135/b7b5d37ed946b0baf78ee94af2766bea/raw/751d45edcecb3ca99c4b73c3ddd1aaa458575a50/fish.py">畫魚</a></p><h1>Openduck</h1>
+<p><a href="https://gist.githubusercontent.com/41323135/b7b5d37ed946b0baf78ee94af2766bea/raw/751d45edcecb3ca99c4b73c3ddd1aaa458575a50/fish.py">畫魚</a>   <a href="https://gist.githubusercontent.com/41323135/dd55006c439c8207b1421ee636fb9e7e/raw/8964ae430362c5c0067cdb56795d4acf757f16d4/olympic.py">奧運五環</a>  <a href="https://gist.githubusercontent.com/41323135/94cc1067398a9c62663e4b2d326f0e4d/raw/f6b07c38149e5caf16e883a25a1c0dd148f45055/fish2.py">畫魚2</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="535" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/if7YCh8OaIE" title='國立虎尾科技大學機械設計工程系 - 計算機程式 41323135-plotter組裝過程     "分組作業組裝代表"' width="1007"></iframe></p>
+<p><a href="https://gist.githubusercontent.com/41323135/712c20b7c2777a50d67aa45868679ec8/raw/36fa8eae3c8b43d4da60d9d4cfe5d002bb80fe0a/apple.py">畫蘋果</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="535" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/CvOFtyKqs40" title="five bar apple" width="1009"></iframe></p>
+<h1>Openduck</h1>
